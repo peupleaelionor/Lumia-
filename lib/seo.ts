@@ -33,7 +33,7 @@ export function buildMetadata({
   title,
   description,
   path,
-  image = IMAGES.heroMain,
+  image = IMAGES.ogImage,
   keywords = [],
 }: PageSeo): Metadata {
   const url = `${SITE.url}${path}`;
@@ -74,7 +74,7 @@ export function localBusinessJsonLd() {
     name: SITE.name,
     description: SITE.baseline,
     url: SITE.url,
-    image: `${SITE.url}${IMAGES.heroMain}`,
+    image: `${SITE.url}${IMAGES.ogImage}`,
     email: CONTACT.email || undefined,
     telephone: CONTACT.phone || undefined,
     areaServed: AREA_SERVED.map((name) => ({ '@type': 'City', name })),

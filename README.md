@@ -53,26 +53,28 @@ npm run lint
 
 ## 🖼️ Où placer les images
 
-Déposez les visuels dans **`public/images/lumia/`** en respectant les noms
-attendus (voir `public/images/lumia/README.md`).
+Les visuels du projet sont déjà présents dans **`public/images/lumia/`**
+(visuels conceptuels — direction artistique). Le détail des fichiers et de
+leurs déclinaisons réseaux (`-og`, `-square`, `-instagram`) est documenté
+dans **`public/images/lumia/README.md`**.
+
+Principaux visuels et leur emplacement :
 
 | Fichier | Usage |
 | --- | --- |
 | `hero-main.webp` | Hero d’accueil |
-| `facade.webp` | Façade / Contact |
-| `reception.webp` | Accueil / Réservation |
-| `main-room.webp` | Grande salle immersive |
-| `sensory-room.webp` | Salle sensorielle |
-| `birthday.webp` | Anniversaires |
-| `workshop.webp` | Ateliers |
-| `baby-cocon.webp` | Baby Cocon |
-| `diverse-families.webp` | Familles / Écoles-crèches |
-| `wow-room.webp` | Pièce « wow » |
-| `storefront-family.webp` | Boutique |
+| `facade-family-arrival.webp` | Façade / Contact |
+| `facade-storefront.webp` | Boutique / section local |
+| `reception-boutique.webp` | Accueil / Réservation |
+| `main-room-night.webp` · `main-room-play.png` | Grande salle immersive |
+| `sensory-room-soft.webp` · `sensory-wow-room.webp` | Salle sensorielle |
+| `birthday-premium.webp` · `birthday-table.png` | Anniversaires |
+| `workshop-family.webp` · `workshop-natural.png` | Ateliers |
+| `baby-cocon.webp` · `baby-play.webp` | Baby Cocon / tout-petits |
 
 Tant qu’un fichier est absent, un **fallback doux** (dégradé + légende)
-s’affiche — jamais d’image cassée. Pour changer un chemin ou un nom, éditez
-la map `IMAGES` dans **`lib/constants.ts`**.
+s’affiche — jamais d’image cassée. Pour changer un chemin ou un visuel,
+éditez la map `IMAGES` dans **`lib/constants.ts`** (seul endroit à toucher).
 
 ---
 

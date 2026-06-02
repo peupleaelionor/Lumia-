@@ -30,15 +30,18 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const GALLERY: GalleryItem[] = [
-  { src: IMAGES.mainRoom, alt: 'Grande salle de jeu immersive', caption: 'La grande salle immersive', featured: true },
-  { src: IMAGES.facade, alt: 'Façade du futur lieu LUMIA', caption: 'La façade' },
-  { src: IMAGES.reception, alt: 'Accueil chaleureux', caption: 'L’accueil' },
+  { src: IMAGES.mainRoomPlay, alt: 'Grande salle de jeu immersive', caption: 'La grande salle immersive', featured: true },
+  { src: IMAGES.facade, alt: 'Façade du futur lieu, à l’arrivée des familles', caption: 'La façade' },
+  { src: IMAGES.reception, alt: 'Accueil chaleureux et boutique', caption: 'L’accueil' },
   { src: IMAGES.sensoryRoom, alt: 'Salle sensorielle douce', caption: 'La salle sensorielle' },
   { src: IMAGES.birthday, alt: 'Anniversaire premium décoré', caption: 'Un anniversaire premium' },
   { src: IMAGES.workshop, alt: 'Atelier parent-enfant', caption: 'Un atelier parent-enfant' },
   { src: IMAGES.babyCocon, alt: 'Espace Baby Cocon', caption: 'Le Baby Cocon' },
-  { src: IMAGES.diverseFamilies, alt: 'Familles diverses réunies', caption: 'Toutes les familles bienvenues' },
-  { src: IMAGES.wowRoom, alt: 'Pièce spectaculaire et lumineuse', caption: 'La pièce « wow »' },
+  { src: IMAGES.diverseFamilies, alt: 'Familles diverses réunies dans la salle sensorielle', caption: 'Toutes les familles bienvenues' },
+  { src: IMAGES.wowRoom, alt: 'Pièce sensorielle spectaculaire et lumineuse', caption: 'La pièce « wow »' },
+  { src: IMAGES.mainRoom, alt: 'Grande salle sous un ciel étoilé', caption: 'L’ambiance du soir' },
+  { src: IMAGES.babyPlay, alt: 'Tout-petits qui explorent en douceur', caption: 'Les tout-petits explorent' },
+  { src: IMAGES.workshopNatural, alt: 'Atelier autour de matières naturelles', caption: 'Un atelier naturel' },
 ];
 
 const DIFFERENCES = [
@@ -178,7 +181,8 @@ export default function HomePage() {
             <ImageGallery items={GALLERY} />
           </div>
           <p className="mt-6 text-center text-xs italic text-cream/50">
-            Visuels de présentation de la vision du projet, avant ouverture.
+            Visuels conceptuels — direction artistique du projet, avant
+            l’ouverture du lieu réel.
           </p>
         </div>
       </section>

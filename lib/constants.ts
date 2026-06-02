@@ -72,21 +72,40 @@ export const FOOTER_LINKS = [
 ] as const;
 
 /**
- * Convention d'images LUMIA.
- * Déposer les visuels dans /public/images/lumia/ avec ces noms.
+ * Visuels LUMIA — direction artistique du projet (images conceptuelles).
+ * Tous les fichiers vivent dans /public/images/lumia/.
  * Tant qu'une image est absente, le composant affiche un fallback élégant.
+ *
+ * Pour chaque visuel, des déclinaisons sociales existent dans le même dossier :
+ *   • `<nom>-og-1200x630.webp`        → OpenGraph / partage
+ *   • `<nom>-square-1080.webp`        → Instagram carré
+ *   • `<nom>-instagram-1080x1350.webp`→ Instagram portrait
  */
 export const IMAGES = {
   base: '/images/lumia',
+  // Image OpenGraph par défaut (partage réseaux / metadata)
+  ogImage: '/images/lumia/hero-main-og-1200x630.webp',
+
+  // Visuels principaux (clés historiques conservées)
   heroMain: '/images/lumia/hero-main.webp',
-  facade: '/images/lumia/facade.webp',
-  reception: '/images/lumia/reception.webp',
-  mainRoom: '/images/lumia/main-room.webp',
-  sensoryRoom: '/images/lumia/sensory-room.webp',
-  birthday: '/images/lumia/birthday.webp',
-  workshop: '/images/lumia/workshop.webp',
+  facade: '/images/lumia/facade-family-arrival.webp',
+  reception: '/images/lumia/reception-boutique.webp',
+  mainRoom: '/images/lumia/main-room-night.webp',
+  sensoryRoom: '/images/lumia/sensory-room-soft.webp',
+  birthday: '/images/lumia/birthday-premium.webp',
+  workshop: '/images/lumia/workshop-family.webp',
   babyCocon: '/images/lumia/baby-cocon.webp',
-  diverseFamilies: '/images/lumia/diverse-families.webp',
-  wowRoom: '/images/lumia/wow-room.webp',
-  storefrontFamily: '/images/lumia/storefront-family.webp',
+  diverseFamilies: '/images/lumia/sensory-room-diverse-og-1200x630.webp',
+  wowRoom: '/images/lumia/sensory-wow-room.webp',
+  storefrontFamily: '/images/lumia/facade-storefront.webp',
+
+  // Visuels supplémentaires fournis (set enrichi)
+  heroSecondary: '/images/lumia/hero-secondary.webp',
+  facadeStorefront: '/images/lumia/facade-storefront.webp',
+  mainRoomEmpty: '/images/lumia/main-room-empty.webp',
+  mainRoomPlay: '/images/lumia/main-room-play.png',
+  sensoryWow: '/images/lumia/sensory-wow-room.webp',
+  workshopNatural: '/images/lumia/workshop-natural.png',
+  babyPlay: '/images/lumia/baby-play.webp',
+  birthdayTable: '/images/lumia/birthday-table.png',
 } as const;

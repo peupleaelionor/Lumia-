@@ -38,10 +38,10 @@ const DIFFERENCES = [
 ];
 
 const GALLERY: GalleryItem[] = [
-  { src: IMAGES.birthday, alt: 'Table d’anniversaire décorée', caption: 'Une table d’accueil soignée', featured: true },
+  { src: IMAGES.birthday, alt: 'Anniversaire premium décoré', caption: 'Une fête premium et douce', featured: true },
+  { src: IMAGES.birthdayTable, alt: 'Table d’anniversaire dressée', caption: 'Une table d’accueil soignée' },
   { src: IMAGES.wowRoom, alt: 'Décor immersif de fête', caption: 'Un décor immersif' },
-  { src: IMAGES.mainRoom, alt: 'Espace de jeu pour la fête', caption: 'L’espace de jeu' },
-  { src: IMAGES.workshop, alt: 'Mini-atelier pour les invités', caption: 'Un mini-atelier inclus' },
+  { src: IMAGES.mainRoomPlay, alt: 'Espace de jeu pour la fête', caption: 'L’espace de jeu' },
   { src: IMAGES.reception, alt: 'Accueil des familles', caption: 'L’accueil des familles' },
 ];
 
@@ -136,6 +136,9 @@ export default function AnniversairesPage() {
           <div className="mt-12">
             <ImageGallery items={GALLERY} />
           </div>
+          <p className="mt-6 text-center text-xs italic text-cream/50">
+            Visuels conceptuels — direction artistique du projet.
+          </p>
         </div>
       </section>
 

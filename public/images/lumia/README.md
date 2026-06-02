@@ -1,32 +1,47 @@
 # Images LUMIA
 
-Déposez ici les visuels du projet. Tant qu’un fichier est absent, le site
-affiche automatiquement un **fallback élégant** (dégradé doux + légende) —
-jamais d’image cassée. Vous pouvez donc lancer le site avant d’avoir tous
-les visuels.
+Tous les visuels du projet vivent ici. Ce sont des **visuels conceptuels**
+(direction artistique), en attendant les photos du lieu réel.
 
-## Fichiers attendus (format `.webp` recommandé)
+Tant qu’un fichier est absent, le site affiche automatiquement un **fallback
+élégant** (dégradé doux + légende) — jamais d’image cassée.
+
+## Visuels principaux (référencés dans `lib/constants.ts` → `IMAGES`)
 
 | Fichier | Où il apparaît |
 | --- | --- |
 | `hero-main.webp` | Grand visuel d’accueil (hero) |
-| `facade.webp` | Façade du lieu / page Contact |
-| `reception.webp` | Accueil / page Réservation |
-| `main-room.webp` | Grande salle de jeu immersive |
-| `sensory-room.webp` | Salle sensorielle |
-| `birthday.webp` | Anniversaires |
-| `workshop.webp` | Ateliers parent-enfant |
+| `hero-secondary.webp` | Visuel d’appoint |
+| `facade-family-arrival.webp` | Façade (arrivée des familles) — galerie, Contact |
+| `facade-storefront.webp` | Boutique / section local |
+| `reception-boutique.webp` | Accueil — page Réservation |
+| `main-room-night.webp` | Grande salle, ambiance du soir |
+| `main-room-empty.webp` | Grande salle, vue d’ensemble |
+| `main-room-play.png` | Grande salle en pleine activité (galerie) |
+| `sensory-room-soft.webp` | Salle sensorielle |
+| `sensory-wow-room.webp` | Pièce « wow » sensorielle |
+| `sensory-room-diverse-*.webp` | Familles diverses en salle sensorielle |
+| `birthday-premium.webp` | Anniversaires |
+| `birthday-table.png` | Table d’anniversaire dressée |
+| `workshop-family.webp` | Ateliers parent-enfant |
+| `workshop-natural.png` | Ateliers autour de matières naturelles |
 | `baby-cocon.webp` | Espace Baby Cocon |
-| `diverse-families.webp` | Familles diverses / page Écoles-crèches |
-| `wow-room.webp` | Pièce « wow » / vision |
-| `storefront-family.webp` | Boutique |
+| `baby-play.webp` | Tout-petits en exploration |
 
-## Conseils
+## Déclinaisons par visuel
 
-- **Format** : privilégier le `.webp` (ou `.avif`) pour des images légères.
-- **Dimensions** : viser au moins **1600 px** de large pour les visuels pleine largeur (hero, galerie).
-- **Poids** : compresser pour rester sous ~300 Ko par image quand c’est possible.
-- **Nommage** : conserver exactement les noms ci-dessus (ils sont référencés dans `lib/constants.ts`).
+Chaque visuel dispose de variantes prêtes pour les réseaux et le partage :
 
-Pour ajouter ou renommer un visuel, modifiez la map `IMAGES` dans
-`lib/constants.ts`.
+| Suffixe | Format | Usage |
+| --- | --- | --- |
+| `-og-1200x630.webp` | 1200 × 630 | OpenGraph / partage (metadata) |
+| `-square-1080.webp` | 1080 × 1080 | Instagram carré |
+| `-instagram-1080x1350.webp` | 1080 × 1350 | Instagram portrait |
+
+L’image OpenGraph par défaut du site est `hero-main-og-1200x630.webp`
+(définie via `IMAGES.ogImage`).
+
+## Modifier un visuel
+
+Pour changer l’image d’une section, éditez la map `IMAGES` dans
+`lib/constants.ts` — c’est le seul endroit à toucher.

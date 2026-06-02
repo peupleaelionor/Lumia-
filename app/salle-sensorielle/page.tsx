@@ -27,7 +27,8 @@ const AUDIENCES = [
 const GALLERY: GalleryItem[] = [
   { src: IMAGES.sensoryRoom, alt: 'Salle sensorielle lumineuse', caption: 'Lumière douce et fibre optique', featured: true },
   { src: IMAGES.babyCocon, alt: 'Coin tout-doux pour bébés', caption: 'Le coin Baby Cocon' },
-  { src: IMAGES.wowRoom, alt: 'Ciel étoilé immersif', caption: 'Le ciel étoilé' },
+  { src: IMAGES.sensoryWow, alt: 'Pièce sensorielle « wow »', caption: 'La pièce « wow »' },
+  { src: IMAGES.diverseFamilies, alt: 'Familles diverses dans la salle sensorielle', caption: 'Un espace pour toutes les familles' },
 ];
 
 export default function SalleSensoriellePage() {
@@ -134,6 +135,9 @@ export default function SalleSensoriellePage() {
           <div className="mt-12">
             <ImageGallery items={GALLERY} />
           </div>
+          <p className="mt-6 text-center text-xs italic text-cream/50">
+            Visuels conceptuels — direction artistique du projet.
+          </p>
         </div>
       </section>
 
