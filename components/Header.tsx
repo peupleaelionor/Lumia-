@@ -26,8 +26,8 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-brown/10 bg-cream/90 backdrop-blur-md shadow-soft'
+        scrolled || open
+          ? 'border-b border-brown/10 bg-cream/95 backdrop-blur-md shadow-soft'
           : 'bg-transparent'
       }`}
     >
@@ -94,7 +94,7 @@ export default function Header() {
       {/* Menu mobile */}
       <div
         id="menu-mobile"
-        className={`fixed inset-0 top-20 z-40 origin-top bg-cream/98 backdrop-blur-lg transition-all duration-300 lg:hidden ${
+        className={`fixed inset-0 top-20 z-40 origin-top overflow-y-auto bg-cream transition-all duration-300 lg:hidden ${
           open
             ? 'visible opacity-100'
             : 'invisible -translate-y-2 opacity-0'
