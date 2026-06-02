@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-brown font-sans antialiased;
+  }
+
+  /* Décalage d'ancre pour compenser le header fixe */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-brown-dark;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    @apply bg-terracotta/25 text-brown-dark;
+  }
+
+  /* Focus visible accessible sur toute la surface */
+  :focus-visible {
+    @apply outline-none ring-2 ring-terracotta ring-offset-2 ring-offset-cream;
+  }
+}
+
+@layer components {
+  /* Conteneur de section standard */
+  .container-lumia {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Bouton principal */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracotta px-7 py-3.5
+           text-sm font-semibold tracking-wide text-ivory shadow-warm transition
+           hover:bg-terracotta-dark hover:shadow-soft-lg active:scale-[0.98];
+  }
+
+  /* Bouton secondaire (contour) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-brown/25
+           bg-ivory/70 px-7 py-3.5 text-sm font-semibold tracking-wide text-brown-dark
+           backdrop-blur transition hover:border-brown/50 hover:bg-ivory active:scale-[0.98];
+  }
+
+  /* Bouton sauge */
+  .btn-sage {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-sage px-7 py-3.5
+           text-sm font-semibold tracking-wide text-ivory shadow-soft transition
+           hover:bg-sage-dark active:scale-[0.98];
+  }
+
+  /* Carte douce réutilisable */
+  .card-soft {
+    @apply rounded-4xl border border-brown/10 bg-ivory shadow-soft transition;
+  }
+
+  /* Petit label / eyebrow au-dessus des titres */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-terracotta-dark;
+  }
+
+  /* Badge doux */
+  .badge-soft {
+    @apply inline-flex items-center gap-2 rounded-full border border-gold/40 bg-sand-light/80
+           px-4 py-1.5 text-xs font-medium tracking-wide text-brown;
+  }
+}
+
+@layer utilities {
+  /* Léger grain / texture chaleureuse à appliquer sur les fonds */
+  .texture-warm {
+    background-image:
+      radial-gradient( at 0% 0%, rgba(198, 138, 110, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(143, 160, 132, 0.07) 0px, transparent 50%);
+  }
+}
