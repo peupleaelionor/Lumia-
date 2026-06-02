@@ -165,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. GALERIE IMMERSIVE */}
-      <section className="bg-brown-dark py-20 text-cream sm:py-28">
+      <section id="galerie" className="bg-brown-dark py-20 text-cream sm:py-28">
         <div className="container-lumia">
           <SectionTitle
             eyebrow="La galerie"

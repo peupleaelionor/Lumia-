@@ -34,78 +34,86 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-[100] transition-all duration-300 ${
-        scrolled || open
-          ? 'border-b border-brown/10 bg-cream backdrop-blur-md shadow-soft'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container-lumia flex h-20 items-center justify-between">
-        <Link
-          href="/"
-          className="group flex flex-col leading-none"
-          onClick={() => setOpen(false)}
-        >
-          <span className="font-serif text-2xl font-semibold tracking-[0.18em] text-brown-dark">
-            {SITE.name}
-            <span className="ml-1.5 text-sm font-normal italic tracking-normal text-terracotta-dark">
-              {SITE.byline}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-300 ${
+          scrolled || open
+            ? 'border-b border-brown/10 bg-cream backdrop-blur-md shadow-soft'
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="container-lumia flex h-20 items-center justify-between">
+          <Link
+            href="/"
+            className="group flex flex-col leading-none"
+            onClick={() => setOpen(false)}
+          >
+            <span className="font-serif text-2xl font-semibold tracking-[0.18em] text-brown-dark">
+              {SITE.name}
+              <span className="ml-1.5 text-sm font-normal italic tracking-normal text-terracotta-dark">
+                {SITE.byline}
+              </span>
             </span>
-          </span>
-          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-terracotta-dark">
-            {SITE.tagline}
-          </span>
-        </Link>
-
-        {/* Navigation desktop */}
-        <nav
-          aria-label="Navigation principale"
-          className="hidden items-center gap-6 lg:flex"
-        >
-          {mainNavigation.slice(0, -1).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-brown transition hover:text-terracotta-dark"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/contact?intent=waitlist" className="btn-primary px-5 py-2.5 text-sm">
-            Liste d’attente
+            <span className="text-[0.6rem] uppercase tracking-[0.3em] text-terracotta-dark">
+              {SITE.tagline}
+            </span>
           </Link>
-        </nav>
 
-        {/* Bouton menu mobile */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="menu-mobile"
-          aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-          className="relative z-[120] flex h-11 w-11 items-center justify-center rounded-full border border-brown/15 bg-ivory shadow-soft transition hover:bg-ivory focus:outline-none focus:ring-2 focus:ring-terracotta/35 lg:hidden"
-        >
-          <span className="sr-only">{open ? 'Fermer le menu' : 'Ouvrir le menu'}</span>
-          <div className="flex flex-col gap-1.5">
-            <span
-              className={`block h-0.5 w-5 bg-brown-dark transition duration-200 ${open ? 'translate-y-2 rotate-45' : ''}`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-brown-dark transition duration-200 ${open ? 'opacity-0' : ''}`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-brown-dark transition duration-200 ${open ? '-translate-y-2 -rotate-45' : ''}`}
-            />
-          </div>
-        </button>
-      </div>
+          {/* Navigation desktop */}
+          <nav
+            aria-label="Navigation principale"
+            className="hidden items-center gap-6 lg:flex"
+          >
+            {mainNavigation.slice(0, -1).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-brown transition hover:text-terracotta-dark"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/contact?intent=waitlist" className="btn-primary px-5 py-2.5 text-sm">
+              Liste d’attente
+            </Link>
+          </nav>
 
-      {/* Menu mobile : panneau directement sous le header, fond opaque pour éviter que le hero passe devant. */}
+          {/* Bouton menu mobile */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="menu-mobile"
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            className="relative z-[1001] flex h-11 w-11 items-center justify-center rounded-full border border-brown/15 bg-ivory shadow-soft transition hover:bg-ivory focus:outline-none focus:ring-2 focus:ring-terracotta/35 lg:hidden"
+          >
+            <span className="sr-only">{open ? 'Fermer le menu' : 'Ouvrir le menu'}</span>
+            <div className="flex flex-col gap-1.5">
+              <span
+                className={`block h-0.5 w-5 bg-brown-dark transition duration-200 ${open ? 'translate-y-2 rotate-45' : ''}`}
+              />
+              <span
+                className={`block h-0.5 w-5 bg-brown-dark transition duration-200 ${open ? 'opacity-0' : ''}`}
+              />
+              <span
+                className={`block h-0.5 w-5 bg-brown-dark transition duration-200 ${open ? '-translate-y-2 -rotate-45' : ''}`}
+              />
+            </div>
+          </button>
+        </div>
+      </header>
+
+      {/*
+        Menu mobile : panneau « fixed » indépendant, rendu en sibling du header
+        (et NON à l'intérieur) pour échapper au backdrop-filter du header qui,
+        sur WebKit/Safari, rognait le panneau et créait un contexte d'empilement
+        plaçant le panneau derrière le hero. En « fixed », le bloc conteneur est
+        le viewport : plein écran sous le header, opaque, au-dessus de tout.
+      */}
       <div
         id="menu-mobile"
         aria-hidden={!open}
-        className={`absolute left-0 right-0 top-full z-[110] h-[calc(100dvh-5rem)] overflow-y-auto border-t border-brown/10 bg-cream px-5 pb-8 pt-5 shadow-soft-lg transition-all duration-300 lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-20 z-[999] overflow-y-auto overscroll-contain border-t border-brown/10 bg-cream px-5 pb-8 pt-5 transition-all duration-300 lg:hidden ${
           open
             ? 'pointer-events-auto visible translate-y-0 opacity-100'
             : 'pointer-events-none invisible -translate-y-2 opacity-0'
@@ -162,6 +170,6 @@ export default function Header() {
           </p>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
