@@ -35,7 +35,7 @@ const GALLERY: GalleryItem[] = [
   { src: IMAGES.reception, alt: 'Accueil chaleureux et boutique', caption: 'L’accueil' },
   { src: IMAGES.sensoryRoom, alt: 'Salle sensorielle douce', caption: 'La salle sensorielle' },
   { src: IMAGES.birthday, alt: 'Anniversaire premium décoré', caption: 'Un anniversaire premium' },
-  { src: IMAGES.workshop, alt: 'Atelier parent-enfant', caption: 'Un atelier parent-enfant' },
+  { src: IMAGES.workshop, alt: 'Atelier parent-enfant dans un espace sensoriel premium LUMIA', caption: 'Un atelier parent-enfant' },
   { src: IMAGES.babyCocon, alt: 'Espace Baby Cocon', caption: 'Le Baby Cocon' },
   { src: IMAGES.diverseFamilies, alt: 'Familles diverses réunies dans la salle sensorielle', caption: 'Toutes les familles bienvenues' },
   { src: IMAGES.wowRoom, alt: 'Pièce sensorielle spectaculaire et lumineuse', caption: 'La pièce « wow »' },

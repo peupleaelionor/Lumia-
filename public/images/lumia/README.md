@@ -23,8 +23,8 @@ Tant qu’un fichier est absent, le site affiche automatiquement un **fallback
 | `sensory-room-diverse-*.webp` | Familles diverses en salle sensorielle |
 | `birthday-premium.webp` | Anniversaires |
 | `birthday-table.png` | Table d’anniversaire dressée |
-| `workshop-family.webp` | Ateliers parent-enfant |
-| `workshop-natural.png` | Ateliers autour de matières naturelles |
+| `atelier-parent-enfant.webp` | Ateliers parent-enfant (carte galerie + expérience + hero ateliers) |
+| `workshop-natural.webp` | Ateliers autour de matières naturelles |
 | `baby-cocon.webp` | Espace Baby Cocon |
 | `baby-play.webp` | Tout-petits en exploration |
 

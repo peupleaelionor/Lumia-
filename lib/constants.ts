@@ -97,7 +97,7 @@ export const IMAGES = {
   mainRoom: '/images/lumia/main-room-night.webp',
   sensoryRoom: '/images/lumia/sensory-room-soft.webp',
   birthday: '/images/lumia/birthday-premium.webp',
-  workshop: '/images/lumia/workshop-family.webp',
+  workshop: '/images/lumia/atelier-parent-enfant.webp',
   babyCocon: '/images/lumia/baby-cocon.webp',
   diverseFamilies: '/images/lumia/sensory-room-diverse-og-1200x630.webp',
   wowRoom: '/images/lumia/sensory-wow-room.webp',
