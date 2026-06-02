@@ -25,8 +25,9 @@ export default function CTA({
     terracotta:
       'bg-gradient-to-br from-terracotta to-terracotta-dark text-ivory',
     sage: 'bg-gradient-to-br from-sage to-sage-dark text-ivory',
-    starry:
-      'bg-gradient-to-br from-brown-dark to-brown text-ivory bg-starry',
+    // bg-starry est un backgroundImage qui écraserait le gradient Tailwind :
+    // on utilise un fond solide brun foncé + overlay étoilé séparé.
+    starry: 'bg-brown-dark text-ivory',
   };
 
   return (
@@ -37,7 +38,7 @@ export default function CTA({
         {tone === 'starry' && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-starry opacity-50"
+            className="pointer-events-none absolute inset-0 bg-starry opacity-30"
           />
         )}
         <div className="relative mx-auto max-w-2xl">
