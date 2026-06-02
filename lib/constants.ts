@@ -6,6 +6,10 @@
 
 export const SITE = {
   name: 'LUMIA',
+  /** Signature de la porteuse de projet, affichée avec le nom de marque. */
+  byline: 'by Malika',
+  /** Nom de marque complet (titre du site, partage, header/footer). */
+  brand: 'LUMIA by Malika',
   tagline: 'Maison immersive & sensorielle',
   baseline:
     'Un lieu doux et magique pour jouer, explorer, créer, célébrer et se calmer en famille.',
@@ -103,9 +107,9 @@ export const IMAGES = {
   heroSecondary: '/images/lumia/hero-secondary.webp',
   facadeStorefront: '/images/lumia/facade-storefront.webp',
   mainRoomEmpty: '/images/lumia/main-room-empty.webp',
-  mainRoomPlay: '/images/lumia/main-room-play.png',
+  mainRoomPlay: '/images/lumia/main-room-play.webp',
   sensoryWow: '/images/lumia/sensory-wow-room.webp',
-  workshopNatural: '/images/lumia/workshop-natural.png',
+  workshopNatural: '/images/lumia/workshop-natural.webp',
   babyPlay: '/images/lumia/baby-play.webp',
-  birthdayTable: '/images/lumia/birthday-table.png',
+  birthdayTable: '/images/lumia/birthday-table.webp',
 } as const;

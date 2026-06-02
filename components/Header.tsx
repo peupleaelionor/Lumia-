@@ -39,6 +39,9 @@ export default function Header() {
         >
           <span className="font-serif text-2xl font-semibold tracking-[0.18em] text-brown-dark">
             {SITE.name}
+            <span className="ml-1.5 text-sm font-normal italic tracking-normal text-terracotta-dark">
+              {SITE.byline}
+            </span>
           </span>
           <span className="text-[0.6rem] uppercase tracking-[0.3em] text-terracotta-dark">
             {SITE.tagline}

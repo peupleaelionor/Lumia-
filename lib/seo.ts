@@ -38,7 +38,9 @@ export function buildMetadata({
 }: PageSeo): Metadata {
   const url = `${SITE.url}${path}`;
   const fullTitle =
-    path === '/' ? `${SITE.name} — ${SITE.tagline}` : `${title} | ${SITE.name}`;
+    path === '/'
+      ? `${SITE.brand} — ${SITE.tagline}`
+      : `${title} | ${SITE.brand}`;
 
   return {
     title: fullTitle,
@@ -49,7 +51,7 @@ export function buildMetadata({
       title: fullTitle,
       description,
       url,
-      siteName: SITE.name,
+      siteName: SITE.brand,
       locale: SITE.locale,
       type: 'website',
       images: [{ url: image, width: 1200, height: 630, alt: SITE.name }],
@@ -71,7 +73,7 @@ export function localBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: SITE.name,
+    name: SITE.brand,
     description: SITE.baseline,
     url: SITE.url,
     image: `${SITE.url}${IMAGES.ogImage}`,

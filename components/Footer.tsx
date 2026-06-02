@@ -21,6 +21,9 @@ export default function Footer() {
         <div>
           <p className="font-serif text-2xl tracking-[0.18em] text-cream">
             {SITE.name}
+            <span className="ml-2 text-base font-normal italic tracking-normal text-wood-light">
+              {SITE.byline}
+            </span>
           </p>
           <p className="mt-1 text-sm uppercase tracking-[0.25em] text-wood-light">
             {SITE.tagline}
