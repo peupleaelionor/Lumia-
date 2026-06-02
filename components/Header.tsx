@@ -25,7 +25,7 @@ export default function Header() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open]);
 
-  // Empêche le scroll du body quand le menu mobile est ouvert.
+  // Empêche le scroll de la page quand le menu mobile est ouvert.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -35,9 +35,9 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[80] transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-[100] transition-all duration-300 ${
         scrolled || open
-          ? 'border-b border-brown/10 bg-cream/95 backdrop-blur-md shadow-soft'
+          ? 'border-b border-brown/10 bg-cream backdrop-blur-md shadow-soft'
           : 'bg-transparent'
       }`}
     >
@@ -84,7 +84,7 @@ export default function Header() {
           aria-expanded={open}
           aria-controls="menu-mobile"
           aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-          className="relative z-[90] flex h-11 w-11 items-center justify-center rounded-full border border-brown/15 bg-ivory/90 shadow-soft transition hover:bg-ivory focus:outline-none focus:ring-2 focus:ring-terracotta/35 lg:hidden"
+          className="relative z-[120] flex h-11 w-11 items-center justify-center rounded-full border border-brown/15 bg-ivory shadow-soft transition hover:bg-ivory focus:outline-none focus:ring-2 focus:ring-terracotta/35 lg:hidden"
         >
           <span className="sr-only">{open ? 'Fermer le menu' : 'Ouvrir le menu'}</span>
           <div className="flex flex-col gap-1.5">
@@ -101,46 +101,46 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Menu mobile */}
+      {/* Menu mobile : panneau directement sous le header, fond opaque pour éviter que le hero passe devant. */}
       <div
         id="menu-mobile"
         aria-hidden={!open}
-        className={`fixed inset-x-0 bottom-0 top-20 z-[70] overflow-y-auto bg-cream/98 px-5 pb-8 pt-5 shadow-soft-lg backdrop-blur-xl transition-all duration-300 lg:hidden ${
+        className={`absolute left-0 right-0 top-full z-[110] h-[calc(100dvh-5rem)] overflow-y-auto border-t border-brown/10 bg-cream px-5 pb-8 pt-5 shadow-soft-lg transition-all duration-300 lg:hidden ${
           open
             ? 'pointer-events-auto visible translate-y-0 opacity-100'
-            : 'pointer-events-none invisible -translate-y-3 opacity-0'
+            : 'pointer-events-none invisible -translate-y-2 opacity-0'
         }`}
       >
         <nav
           aria-label="Navigation mobile"
           className="mx-auto flex max-w-xl flex-col gap-3"
         >
-          <div className="rounded-[2rem] border border-brown/10 bg-ivory/90 p-3 shadow-soft">
+          <div className="rounded-[1.75rem] border border-brown/10 bg-ivory p-2 shadow-soft">
             {mainNavigation.map((link, index) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`group block rounded-[1.35rem] px-4 py-4 transition hover:bg-cream focus:bg-cream focus:outline-none focus:ring-2 focus:ring-terracotta/25 ${
-                  index !== mainNavigation.length - 1 ? 'border-b border-brown/8' : ''
+                className={`group block rounded-[1.25rem] px-4 py-3.5 transition hover:bg-cream focus:bg-cream focus:outline-none focus:ring-2 focus:ring-terracotta/25 ${
+                  index !== mainNavigation.length - 1 ? 'border-b border-brown/10' : ''
                 }`}
               >
                 <span className="flex items-center justify-between gap-4">
-                  <span className="font-serif text-xl leading-none text-brown-dark transition group-hover:text-terracotta-dark">
+                  <span className="font-serif text-lg leading-none text-brown-dark transition group-hover:text-terracotta-dark">
                     {link.label}
                   </span>
-                  <span aria-hidden className="text-lg text-terracotta-dark transition group-hover:translate-x-1">
+                  <span aria-hidden className="text-base text-terracotta-dark transition group-hover:translate-x-1">
                     →
                   </span>
                 </span>
-                <span className="mt-1 block text-sm leading-relaxed text-brown/65">
+                <span className="mt-1 block text-xs leading-relaxed text-brown/70 sm:text-sm">
                   {link.description}
                 </span>
               </Link>
             ))}
           </div>
 
-          <div className="mt-2 grid gap-3">
+          <div className="grid gap-3">
             {mobileNavigationCtas.map((cta) => (
               <Link
                 key={cta.href}
@@ -157,7 +157,7 @@ export default function Header() {
             ))}
           </div>
 
-          <p className="rounded-[1.5rem] bg-sand-light/70 px-5 py-4 text-center text-sm leading-relaxed text-brown/70">
+          <p className="rounded-[1.5rem] bg-sand-light px-5 py-4 text-center text-sm leading-relaxed text-brown/70">
             Un futur lieu doux pour les familles à Ambarès / Bassens.
           </p>
         </nav>
