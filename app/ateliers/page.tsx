@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import SectionTitle from '@/components/SectionTitle';
 import ReservationForm from '@/components/ReservationForm';
+import ImageGallery, { type GalleryItem } from '@/components/ImageGallery';
+import SmartImage from '@/components/SmartImage';
 import CTA from '@/components/CTA';
 import { IMAGES } from '@/lib/constants';
 import { WORKSHOPS } from '@/lib/offers';
@@ -15,6 +17,13 @@ export const metadata: Metadata = buildMetadata({
   image: IMAGES.workshop,
   keywords: ['atelier parent enfant Bordeaux rive droite', 'atelier sensoriel enfant'],
 });
+
+const REASSURANCE = [
+  'Petits groupes',
+  'Matériel fourni',
+  'Encadré avec douceur',
+  'Sensoriel, pas médical',
+];
 
 const CATEGORIES = [
   {
@@ -35,6 +44,36 @@ const CATEGORIES = [
   },
 ];
 
+const ATELIER_STEPS = [
+  {
+    number: '1',
+    title: 'Accueil tout doux',
+    description: 'On vous installe dans un cadre calme, à votre rythme, sans précipitation.',
+  },
+  {
+    number: '2',
+    title: 'Exploration sensorielle',
+    description: 'Textures, couleurs, sons et matières naturelles à découvrir librement.',
+  },
+  {
+    number: '3',
+    title: 'Création partagée',
+    description: 'Un temps de création à deux, pour fabriquer un petit souvenir à emporter.',
+  },
+  {
+    number: '4',
+    title: 'Retour au calme',
+    description: 'On termine en douceur, par un moment apaisant avant de repartir.',
+  },
+];
+
+const ATELIER_GALLERY: GalleryItem[] = [
+  { src: IMAGES.workshop, alt: 'Atelier parent-enfant dans un espace sensoriel premium LUMIA', caption: 'Un atelier parent-enfant', featured: true },
+  { src: IMAGES.workshopNatural, alt: 'Atelier autour de matières naturelles', caption: 'Matières naturelles' },
+  { src: IMAGES.babyCocon, alt: 'Coin tout-doux Baby Cocon pour les tout-petits', caption: 'Le coin Baby Cocon' },
+  { src: IMAGES.babyPlay, alt: 'Tout-petit en exploration sensorielle', caption: 'Explorer à son rythme' },
+];
+
 export default function AteliersPage() {
   return (
     <>
@@ -50,6 +89,23 @@ export default function AteliersPage() {
           { label: 'Voir les ateliers', href: '#ateliers', variant: 'secondary' },
         ]}
       />
+
+      {/* Bandeau de réassurance */}
+      <section className="border-b border-brown/10 bg-sand-light/40">
+        <div className="container-lumia flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-5 text-center">
+          {REASSURANCE.map((phrase) => (
+            <span
+              key={phrase}
+              className="inline-flex items-center gap-2 text-sm text-brown"
+            >
+              <span aria-hidden className="text-gold">
+                ✦
+              </span>
+              {phrase}
+            </span>
+          ))}
+        </div>
+      </section>
 
       <section className="container-lumia py-20 sm:py-24">
         <SectionTitle
@@ -94,6 +150,68 @@ export default function AteliersPage() {
               Inscrivez-vous pour être prévenu·e en priorité.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Comment se passe un atelier */}
+      <section className="container-lumia py-20 sm:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="order-2 lg:order-1">
+            <SectionTitle
+              align="left"
+              eyebrow="Le déroulé"
+              title="Comment se passe un atelier"
+              description="Un rythme doux, pensé pour que petits et grands se sentent à l’aise du début à la fin."
+            />
+            <ol className="mt-8 space-y-5">
+              {ATELIER_STEPS.map((step) => (
+                <li key={step.number} className="flex gap-4">
+                  <span
+                    aria-hidden
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-terracotta/15 font-serif text-sm font-semibold text-terracotta-dark"
+                  >
+                    {step.number}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-brown-dark">{step.title}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-brown-light">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="order-1 lg:order-2 lg:sticky lg:top-28">
+            <div className="overflow-hidden rounded-5xl shadow-soft-lg">
+              <div className="relative aspect-[4/5]">
+                <SmartImage
+                  src={IMAGES.workshopNatural}
+                  alt="Atelier sensoriel autour de matières naturelles à LUMIA"
+                  fallbackLabel="Un atelier LUMIA"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Galerie */}
+      <section className="bg-brown-dark py-20 text-cream sm:py-24">
+        <div className="container-lumia">
+          <SectionTitle
+            eyebrow="La galerie"
+            title={<span className="text-ivory">L’ambiance d’un atelier LUMIA</span>}
+          />
+          <div className="mt-12">
+            <ImageGallery items={ATELIER_GALLERY} />
+          </div>
+          <p className="mt-6 text-center text-xs italic text-cream/50">
+            Visuels conceptuels — direction artistique du projet.
+          </p>
         </div>
       </section>
 

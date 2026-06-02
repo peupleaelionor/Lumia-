@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import SectionTitle from '@/components/SectionTitle';
 import ReservationForm from '@/components/ReservationForm';
+import SmartImage from '@/components/SmartImage';
 import CTA from '@/components/CTA';
 import { IMAGES } from '@/lib/constants';
 import { PRO_OFFERS, PRO_TARGETS } from '@/lib/offers';
@@ -16,11 +17,36 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['crèche MAM atelier sensoriel Bordeaux', 'activité crèche rive droite'],
 });
 
+const REASSURANCE = [
+  'Créneaux dédiés',
+  'Ateliers clés en main',
+  'Cadre sécurisé',
+  'Devis personnalisé',
+];
+
 const BENEFITS = [
   'Un cadre calme, propre et sécurisé',
   'Des ateliers clés en main et encadrés',
   'Une approche sensorielle et naturelle',
   'Des créneaux dédiés à votre groupe',
+];
+
+const PROCESS = [
+  {
+    number: '1',
+    title: 'On échange sur votre projet',
+    description: 'Effectifs, âges, objectifs et contraintes : on part de vos besoins réels.',
+  },
+  {
+    number: '2',
+    title: 'On vous propose une formule',
+    description: 'Matinée cocon, atelier mobile ou cycle régulier, avec un devis clair.',
+  },
+  {
+    number: '3',
+    title: 'On accueille votre groupe',
+    description: 'Un créneau privatisé, encadré avec douceur, dans un cadre adapté aux tout-petits.',
+  },
 ];
 
 export default function EcolesCrechesPage() {
@@ -38,6 +64,23 @@ export default function EcolesCrechesPage() {
           { label: 'Voir les offres', href: '#offres', variant: 'secondary' },
         ]}
       />
+
+      {/* Bandeau de réassurance */}
+      <section className="border-b border-brown/10 bg-sand-light/40">
+        <div className="container-lumia flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-5 text-center">
+          {REASSURANCE.map((phrase) => (
+            <span
+              key={phrase}
+              className="inline-flex items-center gap-2 text-sm text-brown"
+            >
+              <span aria-hidden className="text-gold">
+                ✦
+              </span>
+              {phrase}
+            </span>
+          ))}
+        </div>
+      </section>
 
       <section className="container-lumia py-20 sm:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -103,7 +146,53 @@ export default function EcolesCrechesPage() {
         </div>
       </section>
 
-      <section id="demande" className="bg-cream-200/60 py-20 sm:py-24">
+      {/* Comment on organise */}
+      <section className="bg-cream-200/60 py-20 sm:py-24">
+        <div className="container-lumia grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <div className="overflow-hidden rounded-5xl shadow-soft-lg">
+              <div className="relative aspect-[4/3]">
+                <SmartImage
+                  src={IMAGES.mainRoomPlay}
+                  alt="Groupe d’enfants accueilli dans la grande salle de LUMIA"
+                  fallbackLabel="Accueil des groupes"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <SectionTitle
+              align="left"
+              eyebrow="Comment on organise"
+              title="Une organisation simple, en trois temps"
+              description="De la première prise de contact à l’accueil de votre groupe, on vous accompagne à chaque étape."
+            />
+            <ol className="mt-8 space-y-5">
+              {PROCESS.map((step) => (
+                <li key={step.number} className="flex gap-4">
+                  <span
+                    aria-hidden
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage/20 font-serif text-sm font-semibold text-sage-dark"
+                  >
+                    {step.number}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-brown-dark">{step.title}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-brown-light">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="demande" className="py-20 sm:py-24">
         <div className="container-lumia grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
           <div className="lg:sticky lg:top-28">
             <SectionTitle
