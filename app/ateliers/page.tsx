@@ -25,25 +25,6 @@ const REASSURANCE = [
   'Sensoriel, pas médical',
 ];
 
-const CATEGORIES = [
-  {
-    title: 'Ateliers parent-enfant',
-    text: 'Un moment privilégié à deux, pour créer du lien autour d’une activité douce.',
-  },
-  {
-    title: 'Ateliers sensoriels',
-    text: 'Explorer les sens, les textures, les couleurs et les sons en toute sécurité.',
-  },
-  {
-    title: 'Ateliers naturels',
-    text: 'Des matières naturelles et un cadre apaisant pour découvrir et s’émerveiller.',
-  },
-  {
-    title: 'Baby Cocon',
-    text: 'Un espace tout-doux pensé pour les tout-petits et leurs parents, à leur rythme.',
-  },
-];
-
 const ATELIER_STEPS = [
   {
     number: '1',
@@ -85,7 +66,7 @@ export default function AteliersPage() {
         image={IMAGES.workshop}
         imageAlt="Atelier parent-enfant sensoriel à LUMIA"
         actions={[
-          { label: 'S’inscrire à un atelier', href: '#inscription' },
+          { label: "S'inscrire à un atelier", href: '#inscription' },
           { label: 'Voir les ateliers', href: '#ateliers', variant: 'secondary' },
         ]}
       />
@@ -107,29 +88,12 @@ export default function AteliersPage() {
         </div>
       </section>
 
-      <section className="container-lumia py-20 sm:py-24">
-        <SectionTitle
-          eyebrow="Les familles d’ateliers"
-          title="Quatre univers, une même douceur"
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {CATEGORIES.map((cat) => (
-            <div key={cat.title} className="card-soft p-6">
-              <h3 className="text-lg text-brown-dark">{cat.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-brown-light">
-                {cat.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="ateliers" className="bg-cream-200/60 py-20 sm:py-24">
         <div className="container-lumia">
           <SectionTitle
             eyebrow="Le programme"
             title="Nos ateliers signature"
-            description="Chaque atelier favorise un moment calme, l’exploration des sens et le partage — sans aucune promesse médicale."
+            description="Chaque atelier favorise un moment calme, l'exploration des sens et le partage — sans aucune promesse médicale."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {WORKSHOPS.map((workshop) => (
@@ -161,7 +125,7 @@ export default function AteliersPage() {
               align="left"
               eyebrow="Le déroulé"
               title="Comment se passe un atelier"
-              description="Un rythme doux, pensé pour que petits et grands se sentent à l’aise du début à la fin."
+              description="Un rythme doux, pensé pour que petits et grands se sentent à l'aise du début à la fin."
             />
             <ol className="mt-8 space-y-5">
               {ATELIER_STEPS.map((step) => (
@@ -204,7 +168,7 @@ export default function AteliersPage() {
         <div className="container-lumia">
           <SectionTitle
             eyebrow="La galerie"
-            title={<span className="text-ivory">L’ambiance d’un atelier LUMIA</span>}
+            title={<span className="text-ivory">L&apos;ambiance d&apos;un atelier LUMIA</span>}
           />
           <div className="mt-12">
             <ImageGallery items={ATELIER_GALLERY} />
@@ -222,7 +186,7 @@ export default function AteliersPage() {
               align="left"
               eyebrow="Inscription"
               title="Demander une inscription"
-              description="Indiquez l’atelier qui vous intéresse et l’âge de votre enfant : nous vous tenons informé·e des prochaines dates."
+              description="Indiquez l'atelier qui vous intéresse et l'âge de votre enfant : nous vous tenons informé·e des prochaines dates."
             />
           </div>
           <ReservationForm
@@ -234,10 +198,10 @@ export default function AteliersPage() {
 
       <CTA
         tone="sage"
-        title="Envie d’un moment doux en famille ?"
-        description="Rejoignez la liste d’attente et soyez parmi les premiers à réserver un atelier."
+        title="Envie d'un moment doux en famille ?"
+        description="Rejoignez la liste d'attente et soyez parmi les premiers à réserver un atelier."
         actions={[
-          { label: 'Rejoindre la liste d’attente', href: '/reservation' },
+          { label: "Rejoindre la liste d'attente", href: '/reservation' },
           { label: 'Découvrir la salle sensorielle', href: '/salle-sensorielle', variant: 'secondary' },
         ]}
       />

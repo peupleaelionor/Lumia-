@@ -24,13 +24,6 @@ const REASSURANCE = [
   'Devis personnalisé',
 ];
 
-const BENEFITS = [
-  'Un cadre calme, propre et sécurisé',
-  'Des ateliers clés en main et encadrés',
-  'Une approche sensorielle et naturelle',
-  'Des créneaux dédiés à votre groupe',
-];
-
 const PROCESS = [
   {
     number: '1',
@@ -58,7 +51,7 @@ export default function EcolesCrechesPage() {
         title="Un partenaire pour la petite enfance."
         subtitle="Crèches, MAM, assistantes maternelles, écoles et centres de loisirs : des matinées et ateliers sensoriels pensés pour vos groupes."
         image={IMAGES.diverseFamilies}
-        imageAlt="Groupe d’enfants accompagné dans la maison LUMIA"
+        imageAlt="Groupe d'enfants accompagné dans la maison LUMIA"
         actions={[
           { label: 'Demander une proposition', href: '#demande' },
           { label: 'Voir les offres', href: '#offres', variant: 'secondary' },
@@ -108,7 +101,7 @@ export default function EcolesCrechesPage() {
           <SectionTitle
             eyebrow="Les offres B2B"
             title="Des formules sur mesure"
-            description="Du créneau ponctuel au cycle régulier, nous construisons l’offre qui correspond à votre structure."
+            description="Du créneau ponctuel au cycle régulier, nous construisons l'offre qui correspond à votre structure."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {PRO_OFFERS.map((offer) => (
@@ -123,29 +116,6 @@ export default function EcolesCrechesPage() {
         </div>
       </section>
 
-      <section className="container-lumia py-20 sm:py-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <SectionTitle
-            align="left"
-            eyebrow="Les bénéfices"
-            title="Ce que votre structure y gagne"
-          />
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {BENEFITS.map((benefit) => (
-              <li
-                key={benefit}
-                className="flex items-start gap-3 rounded-3xl border border-brown/10 bg-ivory p-4 text-sm text-brown shadow-soft"
-              >
-                <span aria-hidden className="text-sage-dark">
-                  ✦
-                </span>
-                {benefit}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* Comment on organise */}
       <section className="bg-cream-200/60 py-20 sm:py-24">
         <div className="container-lumia grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -154,7 +124,7 @@ export default function EcolesCrechesPage() {
               <div className="relative aspect-[4/3]">
                 <SmartImage
                   src={IMAGES.mainRoomPlay}
-                  alt="Groupe d’enfants accueilli dans la grande salle de LUMIA"
+                  alt="Groupe d'enfants accueilli dans la grande salle de LUMIA"
                   fallbackLabel="Accueil des groupes"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -168,7 +138,7 @@ export default function EcolesCrechesPage() {
               align="left"
               eyebrow="Comment on organise"
               title="Une organisation simple, en trois temps"
-              description="De la première prise de contact à l’accueil de votre groupe, on vous accompagne à chaque étape."
+              description="De la première prise de contact à l'accueil de votre groupe, on vous accompagne à chaque étape."
             />
             <ol className="mt-8 space-y-5">
               {PROCESS.map((step) => (
