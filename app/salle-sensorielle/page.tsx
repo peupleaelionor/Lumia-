@@ -17,11 +17,36 @@ export const metadata: Metadata = buildMetadata({
   keywords: ['salle sensorielle enfants Bordeaux', 'espace enfant sensoriel Gironde'],
 });
 
+const REASSURANCE = [
+  'Lumière tamisée',
+  'Sons apaisants',
+  'Petits effectifs',
+  'Sans promesse médicale',
+];
+
 const AUDIENCES = [
   'Enfants sensibles aux environnements calmes',
   'Bébés et tout-petits',
   'Moments parent-enfant',
   'Retour au calme après le jeu',
+];
+
+const MOMENTS = [
+  {
+    number: '1',
+    title: 'Entrée en douceur',
+    description: 'On baisse la lumière et le ton : l’enfant prend ses repères tranquillement.',
+  },
+  {
+    number: '2',
+    title: 'Éveil des sens',
+    description: 'Fibre optique, textures, projections et sons doux à explorer librement.',
+  },
+  {
+    number: '3',
+    title: 'Apaisement',
+    description: 'Un temps calme, allongé sous le ciel étoilé, pour se recentrer.',
+  },
 ];
 
 const GALLERY: GalleryItem[] = [
@@ -46,6 +71,23 @@ export default function SalleSensoriellePage() {
           { label: 'Voir la galerie', href: '#galerie', variant: 'secondary' },
         ]}
       />
+
+      {/* Bandeau de réassurance */}
+      <section className="border-b border-brown/10 bg-sand-light/40">
+        <div className="container-lumia flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-5 text-center">
+          {REASSURANCE.map((phrase) => (
+            <span
+              key={phrase}
+              className="inline-flex items-center gap-2 text-sm text-brown"
+            >
+              <span aria-hidden className="text-gold">
+                ✦
+              </span>
+              {phrase}
+            </span>
+          ))}
+        </div>
+      </section>
 
       <section className="container-lumia py-20 sm:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -122,6 +164,52 @@ export default function SalleSensoriellePage() {
             <p className="mt-4 text-xs italic text-brown/50">
               Peut convenir aux enfants qui aiment les environnements apaisants.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Le déroulé d'une visite */}
+      <section className="container-lumia py-20 sm:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="order-2 lg:order-1">
+            <SectionTitle
+              align="left"
+              eyebrow="Le déroulé d’une visite"
+              title="Un moment pensé pour ralentir"
+              description="Chaque visite suit un rythme doux, du premier pas dans la pièce au retour au calme."
+            />
+            <ol className="mt-8 space-y-5">
+              {MOMENTS.map((moment) => (
+                <li key={moment.number} className="flex gap-4">
+                  <span
+                    aria-hidden
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage/20 font-serif text-sm font-semibold text-sage-dark"
+                  >
+                    {moment.number}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-brown-dark">{moment.title}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-brown-light">
+                      {moment.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="order-1 lg:order-2 lg:sticky lg:top-28">
+            <div className="overflow-hidden rounded-5xl shadow-soft-lg">
+              <div className="relative aspect-[4/5]">
+                <SmartImage
+                  src={IMAGES.sensoryWow}
+                  alt="Ambiance immersive de la salle sensorielle LUMIA"
+                  fallbackLabel="La salle sensorielle"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

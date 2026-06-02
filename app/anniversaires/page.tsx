@@ -115,48 +115,6 @@ export default function AnniversairesPage() {
         </div>
       </section>
 
-      {/* Comparer les 3 formules */}
-      <section className="container-lumia py-20 sm:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="order-2 lg:order-1">
-            <SectionTitle
-              align="left"
-              eyebrow="Comparer en un coup d’œil"
-              title="Choisissez l’expérience qui vous ressemble"
-              description="Un comparatif clair pour décider sereinement, sans hésitation."
-            />
-            <dl className="mt-8 space-y-4">
-              {pricingPlans.map((plan) => (
-                <div
-                  key={plan.id}
-                  className={`rounded-3xl border p-5 ${
-                    plan.highlight
-                      ? 'border-gold/50 bg-sand-light/40'
-                      : 'border-brown/10 bg-ivory'
-                  }`}
-                >
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt className="font-serif text-lg text-brown-dark">
-                      {plan.name}
-                    </dt>
-                    <dd className="font-serif font-semibold text-terracotta-dark">
-                      {plan.price}
-                    </dd>
-                  </div>
-                  <p className="mt-1 text-sm text-brown-light">{plan.subtitle}</p>
-                </div>
-              ))}
-            </dl>
-          </div>
-          <div className="order-1 lg:order-2">
-            <VisualInfoCard
-              src={ANNIV_POSTERS.comparison.src}
-              alt={ANNIV_POSTERS.comparison.alt}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Options à la carte */}
       <section className="bg-cream-200/60 py-20 sm:py-24">
         <div className="container-lumia grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
